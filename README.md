@@ -27,7 +27,7 @@ This Python script monitors server uptime, response times of web URLs, and check
      ```
 
 4. **Example:**
-   - Monitor 'wattpad.com' for uptime, response time, and port 80 status:
+   - Monitor 'example.com' for uptime, response time, and port 80 status:
      ```python
      host = 'example.com'
      url = 'https://example.com'
