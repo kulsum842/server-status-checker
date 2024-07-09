@@ -45,6 +45,9 @@ def check_uptime(host, port=80, timeout=5):
         # sttempt to connect to the host on the specified port
         sock.connect((host,port))
 
+        #close the socket after use
+        sock.close()
+
         return True # if the connection was successful
     
     except socket.error as ex:
@@ -122,6 +125,7 @@ def check_port(host,port,timeout=5):
         #try to connect the host and port
         sock.connect((host,port))
 
+        sock.close()
         return True #port is open
     
     except socket.error as ex:
