@@ -15,7 +15,7 @@ This Python script monitors server uptime, response times of web URLs, and check
 1. **Installation:**
    - Clone the repository:
      ```
-     git clone https://github.com/your-username/server-monitoring-python.git
+     git clone https://github.com/kulsum842/server-status-checker.git
      ```
 2. **Configuration:**
    - Edit the `monitor_server.py` script to customize host, URL, port, email settings, SMTP server, and credentials.
