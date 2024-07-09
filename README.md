@@ -1,48 +1,53 @@
+# Server Status Checker
 
-# Server Monitoring in Python
-
-This Python script monitors server uptime, response times of web URLs, and checks port accessibility. It sends email alerts using SMTP in case of issues such as downtime, slow response times, or closed ports.
+This Python project monitors the availability, response time, and port status of a server. It uses `logging` for event recording and `schedule` for scheduling checks at regular intervals.
 
 ## Features
 
-- **Uptime Monitoring:** Checks if a server is reachable using socket connections.
-- **Response Time Monitoring:** Measures response times of web URLs using the requests library.
-- **Port Monitoring:** Verifies port accessibility using socket connections.
-- **Email Alerts:** Sends notifications via SMTP when issues are detected.
+- **Uptime Monitoring**: Checks if a server is reachable on a specified port.
+- **Response Time Monitoring**: Measures the response time of a website.
+- **Port Monitoring**: Checks if a specific port on a server is open.
+- **Alerting**: Sends email notifications using SMTP when issues are detected.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kulsum842/server-status-checker.git
+   cd server-status-checker
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
-1. **Installation:**
-   - Clone the repository:
-     ```
-     git clone https://github.com/kulsum842/server-status-checker.git
-     ```
-2. **Configuration:**
-   - Edit the `monitor_server.py` script to customize host, URL, port, email settings, SMTP server, and credentials.
+Modify `server_monitor.py` with your server details and email credentials:
 
-3. **Run the Script:**
-   - Execute the script:
-     ```
-     python monitor_server.py
-     ```
+```python
+# Example usage in server_monitor.py
 
-4. **Example:**
-   - Monitor 'example.com' for uptime, response time, and port 80 status:
-     ```python
-     host = 'example.com'
-     url = 'https://example.com'
-     port = 80
-     to_email = 'your-email@example.com'
-     from_email = 'your-email@example.com'
-     smtp_server = 'smtp.example.com'
-     smtp_port = 587
-     smtp_username = 'your-username'
-     smtp_password = 'your-password'
+host = 'example.com'
+url = 'https://example.com'
+port = 80
+to_email = 'recipient@example.com'
+from_email = 'sender@example.com'
+smtp_server = 'smtp.example.com'
+smtp_port = 587
+smtp_username = 'your_username'
+smtp_password = 'your_password'
 
-     monitor_server(host, url, port, to_email, from_email, smtp_server, smtp_port, smtp_username, smtp_password)
-     ```
+schedule_checks(15, host, url, port, to_email, from_email, smtp_server, smtp_port, smtp_username, smtp_password)
+```
 
-### Notes:
+Adjust `schedule_checks` interval and parameters according to your monitoring needs.
 
-- Ensure Python and necessary dependencies (`requests`, `smtplib`) are installed.
-- Customize email settings and monitoring parameters according to your requirements.
+## Configuration
+
+Ensure your email provider allows SMTP access and adjust security settings accordingly.
+
+## Logging
+
+All events are logged to `server_monitor.log` for easy debugging and monitoring.
